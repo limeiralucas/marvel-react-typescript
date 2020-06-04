@@ -1,0 +1,31 @@
+.card {
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  min-width: 200px;
+  min-height: 300px;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.card__image {
+  border-radius: 5px 5px 0 0;
+  flex-grow: 1;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.card__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25%;
+  text-transform: capitalize;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 400;
+}
