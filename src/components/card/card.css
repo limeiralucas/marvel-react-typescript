@@ -5,10 +5,13 @@
   display: flex;
   align-items: center;
   border-radius: 5px;
-  min-width: 200px;
+  width: 250px;
+  max-width: 250px;
   min-height: 300px;
   flex-direction: column;
   cursor: pointer;
+  flex-grow: 1;
+  margin: 10px;
 }
 
 .card__image {
