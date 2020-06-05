@@ -54,6 +54,14 @@ const INITIAL_STATE: CharactersState = {
   ],
   loading: false,
   error: false,
+  characterSelected: {
+    id: 1009148,
+    name: "Absorbing Man",
+    thumbnail: {
+      path: "http://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7",
+      extension: "jpg",
+    },
+  },
 };
 
 const reducer: Reducer<CharactersState> = (

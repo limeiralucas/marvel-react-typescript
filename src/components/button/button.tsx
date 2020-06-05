@@ -4,7 +4,7 @@ import "./button.css";
 
 interface ButtonProps {
   value: string;
-  variant?: string;
+  variant?: "primary" | "secondary";
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 

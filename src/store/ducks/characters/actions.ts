@@ -9,3 +9,6 @@ export const getAllFailure = () => action(CharactersTypes.GET_FAILURE);
 export const getRequest = () => action(CharactersTypes.GET_REQUEST);
 export const getSuccess = () => action(CharactersTypes.GET_SUCCESS);
 export const getFailure = () => action(CharactersTypes.GET_FAILURE);
+
+export const selectCharacter = (character: Character) =>
+  action(CharactersTypes.SELECT_CHARACTER, { character });
