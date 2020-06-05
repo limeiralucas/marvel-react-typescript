@@ -1,5 +1,13 @@
 .characterList {
   display: flex;
+  flex-direction: column;
+}
+.characterList__header {
+  display: flex;
+  justify-content: flex-end;
+}
+.characterList__grid {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }

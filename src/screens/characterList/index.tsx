@@ -24,14 +24,35 @@ const CharacterListScreen: React.SFC<Props> = ({ characters }) => {
     setShowedCharacters(characters);
   }, [characters]);
 
+  const filterCharacters = (
+    searchStr: string,
+    charatersList: Character[]
+  ): void => {
+    const filteredCharacters = charatersList.filter((character) =>
+      character.name.toLowerCase().includes(searchStr.toLowerCase())
+    );
+
+    setShowedCharacters(filteredCharacters);
+  };
+
   return (
     <div className="characterList">
-      {characters.map((character) => (
-        <Card
-          imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-          text={character.name}
+      <div className="characterList__header">
+        <input
+          placeholder="search for a character"
+          type="text"
+          onChange={(e) => filterCharacters(e.target.value, characters)}
         />
-      ))}
+      </div>
+      <div className="characterList__grid">
+        {showedCharacters.map((character) => (
+          <Card
+            key={character.id}
+            imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+            text={character.name}
+          />
+        ))}
+      </div>
     </div>
   );
 };
