@@ -6,12 +6,14 @@ import { ApplicationState } from "../../store";
 
 import "./index.css";
 import Button from "../../components/button/button";
+import { Serie } from "../../store/ducks/series/types";
 
 interface StateProps {
   character?: Character;
+  series: Serie[];
 }
 
-const CharacterScreen: React.SFC<StateProps> = ({ character }) => {
+const CharacterScreen: React.SFC<StateProps> = ({ character, series }) => {
   return character ? (
     <div className="showCharacter">
       <div className="showCharacter__header">
@@ -30,13 +32,9 @@ const CharacterScreen: React.SFC<StateProps> = ({ character }) => {
         </div>
       </div>
       <div className="showCharacter__series">
-        <div>Serie 01</div>
-        <div>Serie 01</div>
-        <div>Serie 01</div>
-        <div>Serie 01</div>
-        <div>Serie 01</div>
-        <div>Serie 01</div>
-        <div>Serie 01</div>
+        {series.map((serie) => (
+          <div key={serie.id}>{serie.title}</div>
+        ))}
       </div>
     </div>
   ) : (
@@ -46,6 +44,7 @@ const CharacterScreen: React.SFC<StateProps> = ({ character }) => {
 
 const mapStateToProps = (state: ApplicationState) => ({
   character: state.characters.characterSelected,
+  series: state.series.data,
 });
 
 export default connect(mapStateToProps)(CharacterScreen);
