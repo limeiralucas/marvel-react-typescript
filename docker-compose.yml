@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  marvel_react:
+    stdin_open: true
+    container_name: marvel_react
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/code
+    ports:
+      - 3000:3000

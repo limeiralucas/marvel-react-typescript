@@ -9,9 +9,9 @@ const apiService = axios.create({
 
 apiService.interceptors.request.use((config) => {
   config.params = {
-    apikey: process.env.MARVEL_API_KEY,
-    hash: process.env.MARVEL_API_HASH,
-    ts: process.env.MARVEL_API_TS,
+    apikey: process.env.REACT_APP_MARVEL_API_KEY,
+    hash: process.env.REACT_APP_MARVEL_API_HASH,
+    ts: process.env.REACT_APP_MARVEL_API_TS,
     ...config.params,
   };
 
