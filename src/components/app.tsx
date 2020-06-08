@@ -1,9 +1,8 @@
 import React from "react";
-import CharacterListScreen from "../screens/characterList";
-import CharacterViewScreen from "../screens/characterView";
 
 import "./app.css";
+import Routes from "../routes";
 
-const App: React.SFC = () => <CharacterViewScreen />;
+const App: React.SFC = () => <Routes />;
 
 export default App;
