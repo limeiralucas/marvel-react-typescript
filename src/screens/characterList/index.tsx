@@ -6,6 +6,8 @@ import Card from "../../components/card/card";
 import { ApplicationState } from "../../store";
 
 import "./index.css";
+import Button from "../../components/button/button";
+import TextInput from "../../components/textInput/textInput";
 
 interface StateProps {
   characters: Character[];
@@ -40,15 +42,11 @@ const CharacterListScreen: React.SFC<Props> = ({ characters }) => {
       <div className="character-list__header">
         <div className="character-list__title">Marvel's Characters</div>
         <div className="character-list__search-container">
-          <input
-            className="character-list__search-input"
+          <TextInput
             placeholder="Search character"
-            type="text"
             onChange={(e) => filterCharacters(e.target.value, characters)}
           />
-          <button className="character-list__search-button">
-            <i className="fa fa-search"></i>
-          </button>
+          <i className="fa fa-search"></i>
         </div>
       </div>
       <div className="character-list__grid">

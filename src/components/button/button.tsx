@@ -3,7 +3,7 @@ import React from "react";
 import "./button.css";
 
 interface ButtonProps {
-  value: string;
+  value: string | React.ReactNode;
   variant?: "primary" | "secondary";
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
