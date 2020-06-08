@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { withRouter, match } from "react-router";
+import { withRouter } from "react-router";
 import { History } from "history";
 import { Dispatch, bindActionCreators } from "redux";
 
@@ -54,7 +54,8 @@ const CharacterScreen: React.SFC<Props> = ({
     const characterId = parseInt(match.params.characterId);
     getCharacter(characterId);
     getAllByCharacterRequest(characterId);
-  }, []);
+  }, [getCharacter, getAllByCharacterRequest, match.params.characterId]);
+
   return (
     <div className="character-view">
       <div className="character-view__header">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { History } from "history";
@@ -39,7 +39,7 @@ const CharacterListScreen: React.SFC<Props> = ({
 }) => {
   useEffect(() => {
     getAllRequest();
-  }, []);
+  }, [getAllRequest]);
 
   return (
     <div className="character-list">
