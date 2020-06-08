@@ -4,13 +4,19 @@ import "./button.css";
 
 interface ButtonProps {
   value: string;
-  variant?: string;
+  leftIcon?: React.ReactNode;
+  variant?: "primary" | "secondary";
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Button: React.SFC<ButtonProps> = ({ value, variant, onClick }) => (
+const Button: React.SFC<ButtonProps> = ({
+  value,
+  variant,
+  leftIcon,
+  onClick,
+}) => (
   <button className={`button ${variant}`} onClick={onClick}>
-    {value}
+    {leftIcon} {value}
   </button>
 );
 

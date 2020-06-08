@@ -1,0 +1,33 @@
+.character-view__header {
+  padding: 20px 0;
+}
+.character-view__back-button {
+  color: #2d2c2d;
+  font-size: 16px;
+  border: none;
+  font-family: "Signika";
+  cursor: pointer;
+  outline: none;
+}
+
+.character-view__image {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.character-view__image .card {
+  margin-bottom: 20px;
+}
+
+.character-view__serie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.character-view__serie-grid .card {
+  margin: 20px 10px 0px 10px;
+}
