@@ -4,6 +4,6 @@ import CharacterViewScreen from "../screens/characterView";
 
 import "./app.css";
 
-const App: React.SFC = () => <CharacterListScreen />;
+const App: React.SFC = () => <CharacterViewScreen />;
 
 export default App;

@@ -7,6 +7,7 @@ import { ApplicationState } from "../../store";
 import "./index.css";
 import { Serie } from "../../store/ducks/series/types";
 import Card from "../../components/card/card";
+import Button from "../../components/button/button";
 
 interface StateProps {
   character?: Character;
@@ -17,9 +18,7 @@ const CharacterScreen: React.SFC<StateProps> = ({ character, series }) => {
   return character ? (
     <div className="character-view">
       <div className="character-view__header">
-        <button className="character-view__back-button">
-          <i className="fa fa-caret-left"></i> Back
-        </button>
+        <Button value="Back" leftIcon={<i className="fa fa-caret-left"></i>} />
       </div>
       <div className="character-view__image">
         <Card
