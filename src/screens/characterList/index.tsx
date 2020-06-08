@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { History } from "history";
+import Loader from "react-loader-spinner";
 
 import { Character } from "../../store/ducks/characters/types";
 import Card from "../../components/card/card";
@@ -15,6 +16,7 @@ import { Dispatch, bindActionCreators } from "redux";
 
 interface StateProps {
   characters: Character[];
+  loading: boolean;
 }
 
 interface RouterProps {
@@ -31,6 +33,7 @@ type Props = StateProps & RouterProps & DispatchProps;
 const CharacterListScreen: React.SFC<Props> = ({
   characters,
   history,
+  loading,
   getAllRequest,
   searchRequest,
 }) => {
@@ -51,14 +54,18 @@ const CharacterListScreen: React.SFC<Props> = ({
         </div>
       </div>
       <div className="character-list__grid">
-        {characters.map((character) => (
-          <Card
-            key={character.id}
-            imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-            text={character.name}
-            onClick={() => history.push(`/character/${character.id}`)}
-          />
-        ))}
+        {!loading ? (
+          characters.map((character) => (
+            <Card
+              key={character.id}
+              imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+              text={character.name}
+              onClick={() => history.push(`/character/${character.id}`)}
+            />
+          ))
+        ) : (
+          <Loader />
+        )}
       </div>
     </div>
   );
@@ -70,6 +77,7 @@ CharacterListScreen.defaultProps = {
 
 const mapStateToProps = (state: ApplicationState) => ({
   characters: state.characters.data,
+  loading: state.characters.loading,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>

@@ -5,14 +5,7 @@ const INITIAL_STATE: CharactersState = {
   data: [],
   loading: true,
   error: false,
-  characterSelected: {
-    id: 1009148,
-    name: "Absorbing Man",
-    thumbnail: {
-      path: "http://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7",
-      extension: "jpg",
-    },
-  },
+  characterSelected: undefined,
 };
 
 const reducer: Reducer<CharactersState> = (
@@ -20,6 +13,13 @@ const reducer: Reducer<CharactersState> = (
   action
 ): CharactersState => {
   switch (action.type) {
+    case CharactersTypes.GET_ALL_REQUEST:
+    case CharactersTypes.SEARCH_REQUEST:
+      return {
+        ...state,
+        characterSelected: undefined,
+        loading: true,
+      };
     case CharactersTypes.GET_ALL_SUCCESS:
     case CharactersTypes.SEARCH_SUCCESS:
       return {
@@ -27,6 +27,14 @@ const reducer: Reducer<CharactersState> = (
         loading: false,
         error: false,
         data: action.payload.data,
+      };
+    case CharactersTypes.GET_REQUEST:
+      return { ...state, characterSelected: undefined, loading: true };
+    case CharactersTypes.GET_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        characterSelected: action.payload.character,
       };
     default:
       return state;

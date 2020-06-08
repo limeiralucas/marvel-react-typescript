@@ -10,8 +10,6 @@ export enum CharactersTypes {
   GET_REQUEST = "@characters/GET_REQUEST",
   GET_SUCCESS = "@characters/GET_SUCCESS",
   GET_FAILURE = "@characters/GET_FAILURE",
-
-  SELECT_CHARACTER = "@characters/SELECT_CHARACTER",
 }
 
 interface CharacterThumbnail {
