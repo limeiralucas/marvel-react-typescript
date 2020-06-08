@@ -1,4 +1,5 @@
 import React from "react";
+import { DebounceInput } from "react-debounce-input";
 
 import "./textInput.css";
 
@@ -8,12 +9,18 @@ interface TextInputProps {
 }
 
 const TextInput: React.SFC<TextInputProps> = ({ placeholder, onChange }) => (
-  <input
+  <DebounceInput
+    minLength={2}
+    debounceTimeout={300}
     className="text-input"
     type="text"
     placeholder={placeholder}
-    onChange={onChange}
+    onChange={onChange!}
   />
 );
+
+TextInput.defaultProps = {
+  onChange: (ev) => void 0,
+};
 
 export default TextInput;

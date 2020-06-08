@@ -3,6 +3,10 @@ export enum CharactersTypes {
   GET_ALL_SUCCESS = "@characters/GET_ALL_SUCCESS",
   GET_ALL_FAILURE = "@characters/GET_ALL_FAILURE",
 
+  SEARCH_REQUEST = "@characters/SEARCH_REQUEST",
+  SEARCH_SUCCESS = "@characters/SEARCH_SUCCESS",
+  SEARCH_FAILURE = "@characters/SEARCH_FAILURE",
+
   GET_REQUEST = "@characters/GET_REQUEST",
   GET_SUCCESS = "@characters/GET_SUCCESS",
   GET_FAILURE = "@characters/GET_FAILURE",
