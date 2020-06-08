@@ -5,8 +5,8 @@ import { Character } from "../../store/ducks/characters/types";
 import { ApplicationState } from "../../store";
 
 import "./index.css";
-import Button from "../../components/button/button";
 import { Serie } from "../../store/ducks/series/types";
+import Card from "../../components/card/card";
 
 interface StateProps {
   character?: Character;
@@ -15,25 +15,25 @@ interface StateProps {
 
 const CharacterScreen: React.SFC<StateProps> = ({ character, series }) => {
   return character ? (
-    <div className="showCharacter">
-      <div className="showCharacter__header">
-        <div className="showCharacter__actions">
-          <Button value="voltar" />
-          <Button value="editar" variant="secondary" />
-        </div>
-        <div
-          className="showCharacter__image"
-          style={{
-            backgroundImage: `url(${character.thumbnail.path}.${character.thumbnail.extension})`,
-          }}
-        />
-        <div className="showCharacter__name">
-          (#{character.id}) {character.name}
-        </div>
+    <div className="character-view">
+      <div className="character-view__header">
+        <button className="character-view__back-button">
+          <i className="fa fa-caret-left"></i> Back
+        </button>
       </div>
-      <div className="showCharacter__series">
+      <div className="character-view__image">
+        <Card
+          imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+        />
+        {character.name}
+      </div>
+      <div className="character-view__serie-grid">
         {series.map((serie) => (
-          <div key={serie.id}>{serie.title}</div>
+          <Card
+            key={serie.id}
+            imageUrl={`${serie.thumbnail.path}.${serie.thumbnail.extension}`}
+            text={serie.title}
+          />
         ))}
       </div>
     </div>

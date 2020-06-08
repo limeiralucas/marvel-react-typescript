@@ -4,7 +4,7 @@ import "./card.css";
 
 interface CardProps {
   imageUrl: string;
-  text: string;
+  text?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
@@ -14,7 +14,7 @@ const Card: React.SFC<CardProps> = ({ text, imageUrl, onClick }) => (
       className="card__image"
       style={{ backgroundImage: `url(${imageUrl})` }}
     />
-    <div className="card__text">{text}</div>
+    {text && <div className="card__text">{text}</div>}
   </div>
 );
 

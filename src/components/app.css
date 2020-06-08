@@ -1,0 +1,9 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap";
+
+body {
+  font-family: "Signika", sans-serif;
+  background-color: #ecebec;
+  font-size: 16px;
+  padding: 0px 20px;
+}

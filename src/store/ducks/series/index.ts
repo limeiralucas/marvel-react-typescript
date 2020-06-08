@@ -2,7 +2,16 @@ import { Reducer } from "redux";
 import { SeriesState, SeriesTypes } from "./types";
 
 const INITIAL_STATE: SeriesState = {
-  data: [],
+  data: [
+    {
+      id: 1991,
+      title: "Avengers (1963 - 1996)",
+      thumbnail: {
+        path: "http://i.annihil.us/u/prod/marvel/i/mg/9/10/519baa6d1890a",
+        extension: "jpg",
+      },
+    },
+  ],
   loading: false,
   error: false,
 };

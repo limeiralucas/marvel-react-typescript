@@ -36,15 +36,22 @@ const CharacterListScreen: React.SFC<Props> = ({ characters }) => {
   };
 
   return (
-    <div className="characterList">
-      <div className="characterList__header">
-        <input
-          placeholder="search for a character"
-          type="text"
-          onChange={(e) => filterCharacters(e.target.value, characters)}
-        />
+    <div className="character-list">
+      <div className="character-list__header">
+        <div className="character-list__title">Marvel's Characters</div>
+        <div className="character-list__search-container">
+          <input
+            className="character-list__search-input"
+            placeholder="Search character"
+            type="text"
+            onChange={(e) => filterCharacters(e.target.value, characters)}
+          />
+          <button className="character-list__search-button">
+            <i className="fa fa-search"></i>
+          </button>
+        </div>
       </div>
-      <div className="characterList__grid">
+      <div className="character-list__grid">
         {showedCharacters.map((character) => (
           <Card
             key={character.id}
