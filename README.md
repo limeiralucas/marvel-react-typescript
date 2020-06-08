@@ -1,5 +1,7 @@
 # Marvel Typescript React
 
+Marvel's character/series catalog made with Typescript and React
+
 ## How to run (with docker-compose)
 
 1. Make sure you have [Docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/) installed.
