@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter, match } from "react-router";
+import { History } from "history";
 
 import { Character } from "../../store/ducks/characters/types";
 import { ApplicationState } from "../../store";
@@ -14,11 +16,27 @@ interface StateProps {
   series: Serie[];
 }
 
-const CharacterScreen: React.SFC<StateProps> = ({ character, series }) => {
+interface RouterProps {
+  history: History;
+  match: match;
+}
+
+type Props = StateProps & RouterProps;
+
+const CharacterScreen: React.SFC<Props> = ({
+  character,
+  series,
+  history,
+  match,
+}) => {
   return character ? (
     <div className="character-view">
       <div className="character-view__header">
-        <Button value="Back" leftIcon={<i className="fa fa-caret-left"></i>} />
+        <Button
+          value="Back"
+          leftIcon={<i className="fa fa-caret-left"></i>}
+          onClick={() => history.push("/")}
+        />
       </div>
       <div className="character-view__image">
         <Card
@@ -37,7 +55,7 @@ const CharacterScreen: React.SFC<StateProps> = ({ character, series }) => {
       </div>
     </div>
   ) : (
-    <div>Character not found</div>
+    <div>Loading</div>
   );
 };
 
@@ -46,4 +64,4 @@ const mapStateToProps = (state: ApplicationState) => ({
   series: state.series.data,
 });
 
-export default connect(mapStateToProps)(CharacterScreen);
+export default withRouter(connect(mapStateToProps)(CharacterScreen));

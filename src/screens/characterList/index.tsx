@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { History } from "history";
 
 import { Character } from "../../store/ducks/characters/types";
 import Card from "../../components/card/card";
 import { ApplicationState } from "../../store";
 
-import "./index.css";
-import Button from "../../components/button/button";
 import TextInput from "../../components/textInput/textInput";
+
+import "./index.css";
 
 interface StateProps {
   characters: Character[];
+}
+
+interface RouterProps {
+  history: History;
 }
 
 // interface DispatchProps {
 //     getAllRequest(): void;
 // }
 
-type Props = StateProps;
+type Props = StateProps & RouterProps;
 
-const CharacterListScreen: React.SFC<Props> = ({ characters }) => {
+const CharacterListScreen: React.SFC<Props> = ({ characters, history }) => {
   const [showedCharacters, setShowedCharacters] = useState([] as Character[]);
 
   useEffect(() => {
@@ -55,6 +61,7 @@ const CharacterListScreen: React.SFC<Props> = ({ characters }) => {
             key={character.id}
             imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
             text={character.name}
+            onClick={() => history.push(`/character/${character.id}`)}
           />
         ))}
       </div>
@@ -70,4 +77,4 @@ const mapStateToProps = (state: ApplicationState) => ({
   characters: state.characters.data,
 });
 
-export default connect(mapStateToProps)(CharacterListScreen);
+export default withRouter(connect(mapStateToProps)(CharacterListScreen));
