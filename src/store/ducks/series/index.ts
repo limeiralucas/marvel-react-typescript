@@ -21,6 +21,11 @@ const reducer: Reducer<SeriesState> = (
   action
 ): SeriesState => {
   switch (action.type) {
+    case SeriesTypes.GET_ALL_BY_CHARACTER_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
     case SeriesTypes.GET_ALL_BY_CHARACTER_SUCCESS:
       return {
         ...state,

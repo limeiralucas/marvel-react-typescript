@@ -1,4 +1,7 @@
-import { createStore, Store } from "redux";
+import { createStore, Store, compose, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
+
+import rootSaga from "./ducks/rootSaga";
 
 import { CharactersState } from "./ducks/characters/types";
 import createRootReducer from "./ducks/rootReducer";
@@ -9,6 +12,13 @@ export interface ApplicationState {
   series: SeriesState;
 }
 
-const store: Store<ApplicationState> = createStore(createRootReducer());
+const sagaMiddleware = createSagaMiddleware();
+
+const store: Store<ApplicationState> = createStore(
+  createRootReducer(),
+  compose(applyMiddleware(sagaMiddleware))
+);
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
